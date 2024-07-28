@@ -117,3 +117,19 @@ def calculate_weekly_stats():
         })
 
     return sorted(result, key=lambda x: x['week'])
+
+def calculate_total_take_home_earnings():
+    weekly_stats = calculate_weekly_stats()
+    return sum(week['take_home_pay'] for week in weekly_stats)
+
+def calculate_daily_earnings():
+    entries = read_entries()
+    daily_earnings = defaultdict(float)
+
+    for entry in entries:
+        date, minutes, pay_rate = entry[:3]
+        hours = int(minutes) / 60
+        pay = hours * float(pay_rate)
+        daily_earnings[date] += pay
+
+    return sorted(daily_earnings.items())

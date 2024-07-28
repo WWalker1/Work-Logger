@@ -1,0 +1,6 @@
+@echo off
+echo Activating virtual environment...
+call "C:\Users\22wes\OneDrive\Data Science Projects\.venv\Scripts\activate.bat"
+echo Running Python script...
+python "C:\Users\22wes\OneDrive\Data Science Projects\Work Logger\GUI.py"
+pause
